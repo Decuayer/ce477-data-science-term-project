@@ -34,10 +34,17 @@ The primary objective is to build a reproducible, robust data pipeline that inge
 │   ├── fig10_discretized_magnitude_classes.png
 │   ├── fig11_pca_2d_projection.png
 │   ├── fig12_pca_3d_projection.png
-│   └── fig13_data_augmentation_smote.png
+│   ├── fig13_data_augmentation_smote.png
+│   ├── fig14_decision_tree_visualization.png
+│   ├── fig15_feature_importance_and_spatial_map.png
+│   ├── fig16_confusion_matrices_comparison.png
+│   └── fig17_classification_metrics_comparison.png
 ├── notebooks/
 │   ├── 00_afad_earthquake_data_collection.ipynb  # Data retrieval pipeline (API and cloud fallback)
-│   └── 01_dataset_analysis.ipynb                 # EDA, statistical analysis, and preprocessing
+│   ├── 01_dataset_analysis.ipynb                 # EDA, statistical analysis, and preprocessing
+│   └── 02_classification_analysis.ipynb          # Assignment #2: Multi-class seismic severity classification
+├── run_classification.py                      # Standalone classification training & evaluation script
+├── requirements.txt                           # Python package dependencies
 ├── .gitignore                                 # System and environment exclusions
 └── README.md                                  # Project documentation
 ```
@@ -65,6 +72,12 @@ The statistical and descriptive inspection (`notebooks/01_dataset_analysis.ipynb
 - **Scaling and Encoding:** Implementation of Min-Max normalization, Z-score standardization, and One-Hot Encoding for categorical variables.
 - **Dimensionality Reduction:** 2D and 3D Principal Component Analysis (PCA) to evaluate variance explained and feature separability.
 - **Class Balancing:** Application of Synthetic Minority Over-sampling Technique (SMOTE) to address severe frequency imbalances across high-magnitude classes.
+
+### 3.4. Supervised Classification (`notebooks/02_classification_analysis.ipynb`)
+- **Discretized Target Selection:** Multi-class classification of seismic severity tiers (`Micro (<3.0)`, `Minor (3.0-3.9)`, and `Light+ (>=4.0)`) with strict exclusion of target-leaking attributes.
+- **Stratified Partitioning:** Split into **60% Training** ($92,063$ events), **20% Validation** ($30,688$ events), and **20% Testing** ($30,688$ events) sets, fitting all feature encoders and `StandardScaler` transformations strictly on the Training set.
+- **Classification Algorithms:** Training, validation hyperparameter tuning, and testing evaluation of four classifiers: **Decision Tree Classifier**, **Random Forest Classifier**, **Logistic Regression**, and **Gradient Boosting (`HistGradientBoostingClassifier`)**.
+- **Model Visualization and Evaluation:** Decision Tree rule structure plotting (`fig14`), Gini feature importance and spatial tectonic prediction mapping (`fig15`), normalized confusion matrices (`fig16`), and comparative evaluation across **Accuracy, Precision, Recall, and F1-Score** (`fig17`).
 
 ---
 
@@ -103,3 +116,5 @@ The analysis and preprocessing stages can be reproduced sequentially:
    Open and execute `notebooks/00_afad_earthquake_data_collection.ipynb` to regenerate or verify the raw dataset.
 2. **Analysis and Preprocessing:**
    Execute `notebooks/01_dataset_analysis.ipynb` to reproduce the statistical figures in `figures/` and export `data/afad_earthquake_data_preprocessed.csv`.
+3. **Classification Modeling:**
+   Execute `notebooks/02_classification_analysis.ipynb` to train and evaluate the classification models and export `fig14`–`fig17` to `figures/`.
