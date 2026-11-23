@@ -1,0 +1,7 @@
+Target,Model,Fit time (s)
+magnitude,Linear Regression,0.042066469000019424
+magnitude,Random Forest,15.918701760999966
+magnitude,Gradient Boosting,1.2231376479999199
+depth,Linear Regression,0.01458332800007156
+depth,Random Forest,11.6352498870001
+depth,Gradient Boosting,0.6280635040000107

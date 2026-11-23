@@ -1,0 +1,9 @@
+Target,Model,RMSE,MAE,MAPE (%),Pearson r,R2
+magnitude,Linear Regression,0.3398,0.2465,8.1797,0.5791,0.3351
+magnitude,Random Forest,0.2944,0.212,7.048,0.7078,0.5008
+magnitude,Gradient Boosting,0.2942,0.2117,7.0358,0.7083,0.5016
+magnitude,Mean baseline,0.4167,0.3001,9.8376,,
+depth,Linear Regression,8.3584,4.4316,57.0993,0.3617,0.1307
+depth,Random Forest,7.5323,3.869,50.0103,0.5438,0.2941
+depth,Gradient Boosting,7.5147,3.9204,50.744,0.5466,0.2973
+depth,Mean baseline,8.9649,4.8732,62.6799,,
